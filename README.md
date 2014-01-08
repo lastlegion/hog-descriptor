@@ -22,7 +22,7 @@ npm install hog-descriptor
 
 `extractHOG()` takes options for the cell size (default is `4` pixels), block size (default is `2` cells), block stride (default is `blockSize / 2`), number of bins per orientation histogram (default is `6`), and block normalization method (one of `"L1"`, `"L1-sqrt"`, and default `"L2"`):
 
-`extractPHOG()` takes options for number of levels(default is`3`), other parameters are same as that of extractHOG()
+`extractPHOG()` takes options for number of levels(default is`3`), other parameters are same as that of `extractHOG()`
 
 ```javascript
 var options = {
