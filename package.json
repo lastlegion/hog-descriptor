@@ -9,7 +9,8 @@
         "url": "http://github.com/harthur/hog-descriptor.git"
     },
     "dependencies": {
-        "underscore" : "*"
+        "underscore" : "*",
+        "canvas": "*"
     },
     "keywords": ["image processing", "computer vision"]
 }

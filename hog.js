@@ -1,15 +1,31 @@
 var processing = require("./processing"),
     norms = require("./norms");
 
+
+
 module.exports = {
   extractHOG: extractHOG,
   extractHistograms: extractHistograms,
-  extractHOGFromHistograms: extractHOGFromHistograms
+  extractHOGFromHistograms: extractHOGFromHistograms,
+  extractPHOG: extractPHOG
 }
 
 // also export all the functions from processing.js
 for (var func in processing) {
   module.exports[func] = processing[func];
+}
+
+function extractPHOG(canvas, options){
+    var no_levels = options.levels || 3;
+    var no_divs = options.cellSize;
+    options.cellSize = 1;
+    var phog = extractHOG(canvas, options);
+    for(var level = 1; level<no_levels; level++){
+        options.cellSize = Math.pow(no_divs, level);
+        var levelHOG = extractHOG(canvas, options);
+        phog.push(levelHOG);
+    }
+    return phog
 }
 
 function extractHOG(canvas, options) {
